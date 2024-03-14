@@ -1,8 +1,8 @@
 # Contributing to Rising Whale
 
-👏🎉 First off all, Thanks for your interest in contributing to our project! 🎉👏
+👏🎉 First of all, Thanks for your interest in contributing to our project! 🎉👏
 
-The following is a set of guidelines for contributing to Rising Whale. These are
+The following is a set of guidelines for contributing to Dockerize Poetry. These are
 mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
 ## Code of Conduct
@@ -38,7 +38,7 @@ Execute `inv[oke] --list` to see the list of available commands.
 
 ### Issues
 
-We use GitHub issues to track public bugs/enhancements. Report a new one by [opening a new issue](https://github.com/privatedumbo/rising-whale/issues).
+We use GitHub issues to track public bugs/enhancements. Report a new one by [opening a new issue](https://github.com/privatedumbo/dockerize-poetry/issues).
 
 In this repository, we provide a couple of templates for you to fill in for:
 

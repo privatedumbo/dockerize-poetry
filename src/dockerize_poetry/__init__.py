@@ -1,4 +1,4 @@
-"""Top-level package for rising-whale."""
+"""Top-level package for dockerize-poetry."""
 
 __author__ = """Franco Bocci"""
 __email__ = "francogbocci@gmail.com"

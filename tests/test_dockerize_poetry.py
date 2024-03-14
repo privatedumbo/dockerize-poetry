@@ -1,16 +1,15 @@
-"""Tests for `rising_whale` module."""
+"""Tests for `dockerize_poetry` module."""
 
 from typing import Generator
 
 import pytest
-
-import rising_whale
+import dockerize_poetry
 
 
 @pytest.fixture
 def version() -> Generator[str, None, None]:
     """Sample pytest fixture."""
-    yield rising_whale.__version__
+    yield dockerize_poetry.__version__
 
 
 def test_version(version: str) -> None:

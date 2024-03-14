@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "rising-whale"
+name = "dockerize-poetry"
 version = "0.1.0"
-description = "Playing around with Streaming and Rising Wave"
+description = "Showcasing how to package a poetry project"
 authors = ["Franco Bocci <francogbocci@gmail.com>"]
 license = "Not open source"
 readme = "README.md"
-homepage = "https://github.com/privatedumbo/rising-whale"
-repository = "https://github.com/privatedumbo/rising-whale"
-keywords = ["rising-whale"]
+homepage = "https://github.com/privatedumbo/dockerize-poetry"
+repository = "https://github.com/privatedumbo/dockerize-poetry"
+keywords = ["dockerize-poetry"]
 classifiers=[
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
@@ -20,19 +20,10 @@ classifiers=[
 ]
 
 [tool.poetry.urls]
-"Bug Tracker" = "https://github.com/privatedumbo/rising-whale/issues"
-
-[tool.poetry.scripts]
-rising-whale = 'rising_whale.cli:app'
+"Bug Tracker" = "https://github.com/privatedumbo/dockerize-poetry/issues"
 
 [tool.poetry.dependencies]
 python = "<3.13,>=3.9"
-typer = {extras = ["all"], version = "^0.9.0"}
-psycopg2-binary = "^2.9.9"
-pyiceberg = {extras = ["sql-postgres"], version = "^0.6.0"}
-pydantic-settings = "^2.2.1"
-confluent-kafka = "^2.3.0"
-dataclasses-avroschema = "^0.57.1"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.6.1"
@@ -60,7 +51,7 @@ source = ["src", "*/site-packages"]
 
 [tool.coverage.run]
 branch = true
-source = ["rising_whale"]
+source = ["dockerize-poetry"]
 
 [tool.coverage.report]
 fail_under = 100
@@ -117,7 +108,7 @@ unfixable = [
 max-complexity = 10
 
 [tool.ruff.lint.isort]
-known-first-party = ["rising_whale"]
+known-first-party = ["dockerize-poetry"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"

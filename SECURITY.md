@@ -1,6 +1,6 @@
 # Security Policy
 
-We takes the security of our software products seriously.
+We take the security of our software products seriously.
 
 If you believe you have found a security vulnerability, please report it to us as described below.
 

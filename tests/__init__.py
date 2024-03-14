@@ -1,1 +1,1 @@
-"""Unit test package for rising_whale."""
+"""Unit test package for dockerize_poetry."""
