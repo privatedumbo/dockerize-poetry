@@ -71,59 +71,34 @@ show_missing = true
 directory = "htmlcov"
 
 [tool.ruff]
-target-version = "py39"
+target-version = "py311"
 output-format = "full"
-line-length = 99
+line-length = 88
 fix = true
 
 [tool.ruff.lint]
-select = [
-  "E", "F", "W",  # flake8
-  "C",  # mccabe
-  "I",  # isort
-  "N",  # pep8-naming
-  # "D",  # flake8-docstrings
-  "ANN",  # flake8-annotations
-  "S",  # flake8-bandit
-  "BLE",  # flake8-blind-except
-  "B",  # flake8-bugbear
-  "A",  # flake8-builtins
-  "G",  # flake8-logging-format
-  "ERA",  # eradicate
-  "ISC",  # flake8-implicit-str-concat
-  "RUF",  # Ruff-specific rules
-]
+select = ["ALL"]
 ignore = [
     "ANN101",
-    "ANN204",  # Missing return type annotation for special method
+    "FBT0",  # Boolean default positional argument in function definition
 ]
 unfixable = [
   "ERA",  # Don't remove commented-out code
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*" = ["S101"]
+"tests/**" = [
+    "S101",  # # "Use of `assert` detected"
+]
 
 [tool.ruff.lint.mccabe]
 max-complexity = 10
 
 [tool.ruff.lint.isort]
-known-first-party = ["dockerize-poetry"]
+known-first-party = ["dockerize_poetry"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
-
-[tool.isort]
-multi_line_output = 3
-include_trailing_comma = true
-force_grid_wrap = 0
-use_parentheses = true
-line_length = 99
-known_third_party = ["invoke", "nox", "nox_poetry"]
-
-[tool.black]
-line-length = 99
-target-version = ["py39"]
 
 [tool.mypy]
 warn_return_any = true

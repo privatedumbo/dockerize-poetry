@@ -1,15 +1,15 @@
 """Tests for `dockerize_poetry` module."""
 
-from typing import Generator
 
 import pytest
+
 import dockerize_poetry
 
 
-@pytest.fixture
-def version() -> Generator[str, None, None]:
+@pytest.fixture()
+def version() -> str:
     """Sample pytest fixture."""
-    yield dockerize_poetry.__version__
+    return dockerize_poetry.__version__
 
 
 def test_version(version: str) -> None:

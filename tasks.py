@@ -6,7 +6,6 @@ Execute 'invoke --list' for guidance on using Invoke
 import platform
 import webbrowser
 from pathlib import Path
-from typing import Optional
 
 from invoke import call, task
 from invoke.context import Context
@@ -27,7 +26,7 @@ PYTHON_TARGETS = [
 PYTHON_TARGETS_STR = " ".join([str(p) for p in PYTHON_TARGETS])
 
 
-def _run(c: Context, command: str) -> Optional[Result]:
+def _run(c: Context, command: str) -> Result | None:
     return c.run(command, pty=platform.system() != "Windows")
 
 
@@ -59,7 +58,7 @@ def clean_tests(c: Context) -> None:
 
 
 @task(pre=[clean_build, clean_python, clean_tests])
-def clean(c: Context) -> None:
+def clean(_: Context) -> None:
     """Run all clean sub-tasks."""
 
 
@@ -75,7 +74,9 @@ def hooks(c: Context) -> None:
     _run(c, "poetry run pre-commit run --all-files")
 
 
-@task(name="format", help={"check": "Checks if source is formatted without applying changes"})
+@task(name="format", help={
+    "check": "Checks if source is formatted without applying changes",
+})
 def format_(c: Context, check: bool = False) -> None:
     """Format code."""
     isort_options = ["--check-only", "--diff"] if check else []
@@ -91,7 +92,7 @@ def ruff(c: Context) -> None:
 
 
 @task(pre=[ruff, call(format_, check=True)])
-def lint(c: Context) -> None:
+def lint(_: Context) -> None:
     """Run all linting."""
 
 
@@ -111,8 +112,9 @@ def tests(c: Context) -> None:
 @task(
     help={
         "fmt": "Build a local report: report, html, json, annotate, html, xml.",
-        "open_browser": "Open the coverage report in the web browser (requires --fmt html)",
-    }
+        "open_browser":
+            "Open the coverage report in the web browser (requires --fmt html)",
+    },
 )
 def coverage(c: Context, fmt: str = "report", open_browser: bool = False) -> None:
     """Create coverage report."""
@@ -127,7 +129,7 @@ def coverage(c: Context, fmt: str = "report", open_browser: bool = False) -> Non
     help={
         "part": "Part of the version to be bumped.",
         "dry_run": "Don't write any files, just pretend. (default: False)",
-    }
+    },
 )
 def version(c: Context, part: str, dry_run: bool = False) -> None:
     """Bump version."""

@@ -19,7 +19,8 @@ def tests(session: Session) -> None:
             "inv",
             "tests",
             env={
-                "COVERAGE_FILE": f".coverage.{platform.system()}.{platform.python_version()}",
+                "COVERAGE_FILE":
+                    f".coverage.{platform.system()}.{platform.python_version()}",
             },
         )
     finally:
@@ -30,7 +31,9 @@ def tests(session: Session) -> None:
 @session
 def coverage(session: Session) -> None:
     """Produce the coverage report."""
-    args = session.posargs if session.posargs and len(session._runner.manifest) == 1 else []
+    args = []
+    if session.posargs and len(session._runner.manifest) == 1:  # noqa: SLF001
+        args = session.posargs
     session.install("invoke", "coverage[toml]")
     session.run("inv", "coverage", *args)
 
@@ -41,10 +44,3 @@ def mypy(session: Session) -> None:
     session.install(".")
     session.install("invoke", "mypy")
     session.run("inv", "mypy")
-
-
-@session(python="3.12")
-def security(session: Session) -> None:
-    """Scan dependencies for insecure packages."""
-    session.install("invoke", "safety")
-    session.run("inv", "security")
