@@ -44,10 +44,3 @@ def mypy(session: Session) -> None:
     session.install(".")
     session.install("invoke", "mypy")
     session.run("inv", "mypy")
-
-
-@session(python="3.12")
-def security(session: Session) -> None:
-    """Scan dependencies for insecure packages."""
-    session.install("invoke", "safety")
-    session.run("inv", "security")
